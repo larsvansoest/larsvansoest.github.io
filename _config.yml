@@ -28,7 +28,7 @@ description: >-                        # used by seo meta and the atom feed
   and focuses on text presentation.
 
 # fill in the protocol & hostname for your site, e.g., 'https://username.github.io'
-url: 'https://larsvansoest.github.io'
+url: 'https://vansoest.dev'
 
 github:
   username: larsvansoest             # change to your github username
@@ -40,14 +40,14 @@ social:
   # Change to your full name.
   # It will be displayed as the default author of the posts and the copyright owner in the Footer
   name: Lars van Soest
-  email: lars@vansoest.dev             # change to your email address
+  email: lars@vansoest.dev
   links:
     # The first element serves as the copyright owner's link
-    - https://twitter.com/username      # change to your twitter homepage
-    - https://github.com/larsvansoest       # change to your github homepage
+    - https://www.linkedin.com/in/larsvansoest
+    - https://github.com/larsvansoest
     # Uncomment below to add more social links
     # - https://www.facebook.com/username
-    # - https://www.linkedin.com/in/username
+    # - https://twitter.com/username
 
 google_site_verification: google_meta_tag_verification # change to your verification string
 
@@ -59,7 +59,7 @@ google_analytics:
   # Google Analytics pageviews report settings
   pv:
     proxy_endpoint:   	https://larsvansoest-github-io.ey.r.appspot.com/query?id=ahhofmxhcnN2YW5zb2VzdC1naXRodWItaW9yFQsSCEFwaVF1ZXJ5GICAgJj7z4EKDA
-    cache_path:       # the local PV cache data, friendly to visitors from GFW region
+    cache_path:         # the local PV cache data, friendly to visitors from GFW region
 
 # Prefer color scheme setting.
 #
