@@ -20,7 +20,7 @@ timezone: Europe/Amsterdam
 
 title: vanSoest.dev                          # the main title
 
-tagline: A developers blog   # it will display as the sub-title
+tagline: A developer's blog   # it will display as the sub-title
 
 description: >-                        # used by seo meta and the atom feed
   A minimal, portfolio, sidebar,
