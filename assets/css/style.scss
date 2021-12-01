@@ -1,0 +1,35 @@
+---
+---
+
+/*
+  If the number of TAB files has changed, the following variable is required.
+  And it must be defined before `@import`.
+*/
+$tab-count: {{ site.tabs | size | plus: 1 }}; // plus 1 for home tab
+
+@import "{{ site.theme }}";
+
+/* append your custom style below */
+
+/*#region Avatar*/
+@media (min-width: 1650px)
+{
+  #sidebar .profile-wrapper #avatar>a {
+    width: 10rem;
+    height: 10rem;
+  }
+}
+
+#sidebar #avatar>a {
+  display: block;
+  width: 10rem;
+  height: 10rem;
+  border-radius: 50%;
+  border: none;
+  overflow: hidden;
+  transform: translateZ(0);
+  -webkit-transition: border-color 0.35s ease-in-out;
+  -moz-transition: border-color 0.35s ease-in-out;
+  transition: border-color 0.35s ease-in-out;
+}
+/*#endregion*/
