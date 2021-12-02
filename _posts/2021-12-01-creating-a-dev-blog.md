@@ -16,7 +16,7 @@ In an overview, we
 
 ## Markdown Dev Blog | GitHub Pages
 
-*Source: [chirpy.cotes.info/getting-started](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}.*
+*Source: [chirpy.cotes.info/getting-started](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}*
 
 In the steps below, we setup our main dev blog website. In short, we set up a [GitHub Pages](https://pages.github.com/){:target="_blank"} repository with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"}. Optionally, we may set a custom domain with a certificate for *https*.
 
@@ -45,27 +45,9 @@ For simplicity, we use the first step, as the latter is for custom development. 
 
 3. Now, we have succesfully created the repository. [Clone](https://github.com/git-guides/git-clone) the repository locally.
     
-    ```shell
-    git clone git@github.com:<github_username>/<github_username>.github.io.git
-    ```
-
     >If you are unfamiliar with *git*, checkout [GitHub Git Guide](https://github.com/git-guides){:target="_blank"} and [git-scm](https://git-scm.com/){:target="_blank"}.
-    
-    > For more information on cloning with ssh, checkout [Connecting to GitHub with SSH](https://docs.github.com/en/authentication/connecting-to-github-with-ssh){:target="_blank"}.
 
-4. In the local repository folder, set the value for property `url` of `_config.yml` to `https://<github_username>.github.io`. Subsequently, [add](https://github.com/git-guides/git-add){:target="_blank"}, [commit](https://github.com/git-guides/git-commit){:target="_blank"} and [push](https://github.com/git-guides/git-push){:target="_blank"} the change. 
-
-    > To prevent erros, do not forget to add the `https://` prefix to the value of the property `url` of `_config.yml`. Also, do not mistakenly change the value property `baseurl` of `_config.yml` instead.
-
-    >If you are looking for an editor, checkout [Visual Studio Code](https://code.visualstudio.com/){:target="_blank"}.
-
-    ```shell
-    git add _config.yml
-    git commit -m "Set the page url."
-    git push
-    ```
-    
-    A commit to the remote master branch triggers a [GitHub Action](https://docs.github.com/en/actions){:target="_blank"} to publish the blog.
+4. In the local repository folder, set the value for property `url` of `_config.yml` to `https://<github_username>.github.io`, then [push](https://github.com/git-guides/git-push){:target="_blank"} the change to trigger a [GitHub Action](https://docs.github.com/en/actions){:target="_blank"} to publish the blog.
 
 6. Head to `https://github.com/<github_username>/<github_username>.github.io/actions`, or *Actions* on the repository. Check the publishing status. After a few minutes, once resolved, a new branch `gh-pages` is added to the repository on [GitHub](https://github.com){:target="_blank"}, which contains the built source of the blog page.
 
@@ -81,16 +63,14 @@ For simplicity, we use the first step, as the latter is for custom development. 
 
 8. After a few minutes, head to `https://<github_username>.github.io` and view the new website.
 
-    ![Screenshot of newly created dev blog website](/posts/2021-12-01-creating-a-dev-blog/newly-created-dev-blog-site.png)
-
-After the steps above, we have created the base dev blog website. In the rest of this section, we look into personalisation. In short, we 
+With the steps above, we have created the base dev blog website. For the rest of this section, we look into personalisation. In short, we 
 [set up a custom domain](#custom-domain) and 
 [apply custom *css* to the page](#custom-css-and-running-locally). 
 If these modifications are not desired, simply skip to [CDN and Analytics | Google Cloud](#cdn-and-analytics--google-cloud).
 
 ### Custom Domain
 
-*Source: [docs.github.com/configuring-a-custom-domain-for-your-github-pages-site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)*.
+*Source: [docs.github.com/configuring-a-custom-domain-for-your-github-pages-site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site)*
 
 
 ### Custom CSS and Running Locally
@@ -99,7 +79,7 @@ If these modifications are not desired, simply skip to [CDN and Analytics | Goog
 #### Https
 
 ## CDN and Analytics | Google Cloud
-In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for engagement analytics, pageviews and as *content delivery network (CDN)* for our website. To set up a page without these features, simply skip this step.
+In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for *engagement analytics*, *pageviews* and as *content delivery network (CDN)* for our website. To set up a page without these features.
 
 ### Pageviews
 
