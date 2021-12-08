@@ -16,7 +16,7 @@ In an overview, we
 
 ## Markdown Dev Blog | GitHub Pages
 
-*Source: [chirpy.cotes.info/getting-started](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}*
+*Source: [Getting Started | Chirpy](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}*
 
 In the steps below, we setup our main dev blog website. In short, we set up a [GitHub Pages](https://pages.github.com/){:target="_blank"} repository with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"}. Optionally, we may set a custom domain with a certificate for *https*.
 
@@ -24,7 +24,7 @@ In the steps below, we setup our main dev blog website. In short, we set up a [G
 In order to continue, we need a [GitHub](https://github.com/){:target="_blank"} account, [sign up here](https://github.com/signup){:target="_blank"}. In the steps below, the *GitHub account name* is refered to as `<github_username>`. Moreover, in case a [custom domain](#custom-domain) is not desired, note that the blog url will match `<github_username>.github.io`.
 
 ### Setting up GitHub Pages
-We use [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} as our [GitHub Pages](https://pages.github.com/){:target="_blank"} theme. As mentioned by [chirpy/getting-started](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}, there are two ways to set up the blog.
+We use [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} as our [GitHub Pages](https://pages.github.com/){:target="_blank"} theme. As mentioned by [Getting Started | Chirpy](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}, there are two ways to set up the blog.
 
 - [Using the Chirpy Starter](https://github.com/cotes2020/chirpy-starter/generate){:target="_blank"}
 
@@ -43,7 +43,7 @@ For simplicity, we use the first step, as the latter is for custom development. 
 
     ![Screenshot when creating a new repository from chirpy-starter](/posts/2021-12-01-creating-a-dev-blog/create-a-new-repository-from-chirpy-starter.png)
 
-3. Now, we have succesfully created the repository. [Clone](https://github.com/git-guides/git-clone) the repository locally.
+3. Now, we have successfully created the repository. [Clone](https://github.com/git-guides/git-clone) the repository locally.
     
     >If you are unfamiliar with *git*, checkout [GitHub Git Guide](https://github.com/git-guides){:target="_blank"} and [git-scm](https://git-scm.com/){:target="_blank"}.
 
@@ -66,15 +66,37 @@ For simplicity, we use the first step, as the latter is for custom development. 
 With the steps above, we have created the base dev blog website. For the rest of this section, we look into personalisation. In short, we 
 [set up a custom domain](#custom-domain) and 
 [apply custom *css* to the page](#custom-css-and-running-locally). 
-If these modifications are not desired, simply skip to [CDN and Analytics | Google Cloud](#cdn-and-analytics--google-cloud).
+If these modifications are not necessary, skip to [CDN and Analytics | Google Cloud](#cdn-and-analytics--google-cloud).
 
 ### Custom Domain
 
-*Source: [docs.github.com/managing-a-custom-domain-for-your-github-pages-site](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site){:target="_blank"}*
+In this section, we setup a custom *apex domain* with *https* support. Moreover, we configure the *DNS* by setting up *A-records* for the domain and its `www` subdomain. Subsequently, [GitHub](https://github.com){:target="_blank"} creates and maintains the required certificates for us. 
+
+> For instructions on how to configure a subdomain and other alternative methods, see [Managing a custom domain for your GitHub Pages site - GitHub Docs](https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site){:target="_blank"}.
+
+1. To use a domain, we must own it. So, for starters, make sure to own the desired domain for the blog.
+
+2. In the *DNS* settings of the domain, add the following *A-records*. 
+
+    | Type | Name | Value |
+    |:----:|:----:|:-----:|
+    | A | @ | 185.199.108.153 |
+    | A | @ | 185.199.109.153 |
+    | A | @ | 185.199.110.153 |
+    | A | @ | 185.199.111.153 |
+    | A | www | `<github_username>`.github.io |
+
+    > *DNS* changes can take up to 48 hours. If an error occurs, ensure the *A-records* are correct and wait for the changes to resolve.
+
+3. Head to `https://github.com/<github_username>/<github_username>.github.io/settings/pages` or *Settings* > *Pages* on the repository. Under custom domain, enter the configured domain, and click save. 
+
+    ![Screenshot of setting custom domain](/posts/2021-12-01-creating-a-dev-blog/set-custom-domain.png)
+
+4. Set the value of property `url` of `_config.yml` to the desired domain name (e.g. `https://vansoest.dev`).
+
+5. Type the configured custom domain in the browser, and view the blog.
 
 ### Custom CSS and Running Locally
-
-#### Https
 
 ## CDN and Analytics | Google Cloud
 In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for *engagement analytics*, *pageviews* and as *content delivery network (CDN)* for our website. To set up a page without these features.
