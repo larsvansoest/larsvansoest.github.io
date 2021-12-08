@@ -5,11 +5,11 @@ categories: [GitHub Pages, Google Cloud]
 tags: [dev blog, markdown, github pages, google cloud, chirpy jekyll theme, jekyll, disqus, git]
 ---
 
-In this post, we set up a responsive and interactive dev blog using [GitHub Pages](https://pages.github.com/){:target="_blank"} in combination with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} and [Google Cloud](https://cloud.google.com/){:target="_blank"}. The blog has the same setup as [vanSoest.dev](https://vansoest.dev){:target="_blank"}, featuring *viewcounts*, *tags*, *categories*, a *search bar* and a *dark theme* toggle. The blog should provide any developer with a portfolio to easily and estetically collect sharable guides, notes, thoughts and opinions using [Markdown](https://github.github.com/gfm/){:target="_blank"}. What's more, the blog is completely free, and without licensing restrictions.
+In this post, we set up a responsive and interactive dev blog using [GitHub Pages](https://pages.github.com/){:target="_blank"} in combination with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} and [Google Cloud](https://cloud.google.com/){:target="_blank"}. The blog has the same setup as [vanSoest.dev](https://vansoest.dev){:target="_blank"}, featuring *view counts*, *tags*, *categories*, a *search bar*, and a *dark theme* toggle. The blog should provide any developer with a portfolio to easily and aesthetically collect sharable guides, notes, thoughts, and opinions using [Markdown](https://github.github.com/gfm/){:target="_blank"}. What's more, the blog is completely free, and without licensing restrictions.
 
 In an overview, we 
 [setup a GitHub Pages repository with Chirpy Jekyll Theme](#markdown-dev-blog--github-pages) and
-[configure *viewcounts*, *analytics* and a *CDN* with Google Cloud](#cdn-and-analytics--google-cloud).
+[configure *view counts*, *analytics* and a *CDN* with Google Cloud](#cdn-and-analytics--google-cloud).
 
 ## Markdown Dev Blog \| GitHub Pages
 
@@ -19,7 +19,7 @@ In the steps below, we setup our main dev blog website. In short, we set up a [G
 
 ### Creating a GitHub Account
 
-In order to continue, we need a [GitHub](https://github.com/){:target="_blank"} account, [sign up here](https://github.com/signup){:target="_blank"}. In the steps below, the *GitHub account name* is refered to as `<github_username>`. Moreover, in case a [custom domain](#custom-domain) is not desired, note that the blog url will match `<github_username>.github.io`.
+In order to continue, we need a [GitHub](https://github.com/){:target="_blank"} account, [sign up here](https://github.com/signup){:target="_blank"}. In the steps below, the *GitHub account name* is referred to as `<github_username>`. Moreover, in case a [custom domain](#custom-domain) is not desired, note that the blog URL will match `<github_username>.github.io`.
 
 ### Setting up GitHub Pages
 We use [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} as our [GitHub Pages](https://pages.github.com/){:target="_blank"} theme. As mentioned by [Getting Started \| Chirpy](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}, there are two ways to set up the blog.
@@ -61,7 +61,7 @@ For simplicity, we use the first step. Accordingly, follow the steps below.
 
 8. After a few minutes, head to `https://<github_username>.github.io` and view the new website.
 
-With the steps above, we have created the base dev blog website. For the rest of this section, we look into personalisation. In short, we 
+With the steps above, we have created the base dev blog website. For the rest of this section, we investigate personalisation. In short, we 
 [set up a custom domain](#custom-domain) and 
 [modify the page's *css* and *favicon*](#page-customisation).
 
@@ -91,7 +91,7 @@ In this section, we setup a custom *apex domain* with *https* support. Moreover,
 
 4. Set the value of property `url` of `_config.yml` to the desired domain name (e.g. `https://vansoest.dev`).
 
-5. Type the configured custom domain in the browser, and view the blog.
+5. Type the configured custom domain in the browser and view the blog.
 
 ### Page Customisation
 
@@ -179,7 +179,7 @@ With both the [Google Analytics 4](https://support.google.com/analytics/answer/1
 
 Last but not least, we set up the *content delivery network (CDN)* for our images. With the steps below, with [Google Cloud](https://cloud.google.com/){:target="_blank"}, we set up a load balancer to cache and deliver imagery for our posts. In the steps below, we use a subdomain of the [custom domain](#custom-domain) to enable *https*.
 
-> For the steps below, if prompted to enable a required api (e.g. *Compute Engine API*), enable it to continue.
+> For the steps below, if prompted to enable a required API (e.g. *Compute Engine API*), enable it to continue.
 
 #### Creating a Project
 
@@ -187,7 +187,7 @@ For starters, we need a *project* to construct our infrastructure.
 
 1. Navigate to [console.cloud.google.com](https://console.cloud.google.com){:target="_blank"} and login or create an account.
 
-2. Create a new project, and select it as the current project.
+2. Create a new project and select it as the current project.
 
 #### Creating a Bucket
 
@@ -195,7 +195,7 @@ Below, we set up a *bucket* to store the blog's content and make it public.
 
 1. With the project selected, type `storage` in the search bar and click on *Cloud Storage* and *Create Bucket*.
 
-2. Enter a name for your bucket, and select the desired region(s). Leave the rest of the options as default. Click *Create*.
+2. Enter a name for your bucket and select the desired region(s). Leave the rest of the options as default. Click *Create*.
 
 3. Now, we set the bucket to public. In the bucket details view, click *Permissions* and, click *Add*. Add `allUsers` as principals and select the role `Storage Object Viewer`. When prompted, click *Allow Public Access*.
 
@@ -203,9 +203,9 @@ Below, we set up a *bucket* to store the blog's content and make it public.
 
 > Enabling public access for a bucket will make its contents accessible to the internet. Be mindful when uploading files.
 
-#### Setting up the Loadbalancer
+#### Setting up the Load balancer
 
-In the steps below, we setup *cloud CDN* with a load balancer, which can be accessed through the subdomain `loadbalancer` of our custom domain.
+In the steps below, we setup *cloud CDN* with a load balancer, which can be accessed through the subdomain `load balancer` of our custom domain.
 
 1. With the project selected, type `load balancer` in the search bar and click on *Load Balancing*.
 
@@ -223,7 +223,7 @@ In the steps below, we setup *cloud CDN* with a load balancer, which can be acce
 
     - At *Frontend configuration*, enter a name, and select *https* as protocol. At *certificate*, click *Create a New Certificate*, enter a name, select *Create Google-managed certificate*, enter `loadbalancer.<custom_domain>` at domains, and click *Create*.
 
-5. Review the load balancer's settings, and click *Create*.
+5. Review the load balancer's settings and click *Create*.
 
 6. At the created load balancer's details, find the load balancer's ip-adress. Modify the *DNS* of your custom domain by adding the following rule.
 
