@@ -5,8 +5,6 @@ categories: [GitHub Pages, Google Cloud]
 tags: [dev blog, markdown, github pages, google cloud, chirpy jekyll theme, jekyll, disqus, git]
 ---
 
-## Introduction
-
 In this post, we set up a responsive and interactive dev blog using [GitHub Pages](https://pages.github.com/){:target="_blank"} in combination with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} and [Google Cloud](https://cloud.google.com/){:target="_blank"}. The blog has the same setup as [vanSoest.dev](https://vansoest.dev){:target="_blank"}, featuring *viewcounts*, *tags*, *categories*, a *search bar* and a *dark theme* toggle. The blog should provide any developer with a portfolio to easily and estetically collect sharable guides, notes, thoughts and opinions using [Markdown](https://github.github.com/gfm/){:target="_blank"}. What's more, the blog is completely free, and without licensing restrictions.
 
 In an overview, we 
@@ -136,7 +134,7 @@ In this new file, any css customisation we may add under the file's contents. Fo
 
 *Source: [Customize the Favicon \| Chirpy](https://chirpy.cotes.info/posts/customize-the-favicon/){:target="_blank"}*
 
-In order to change the blog's favicon, prepare a square image with size 512x512 or more. Then, follow the steps below.
+To change the blog's favicon, prepare a square image of size 512x512 or more, and follow the steps below.
 
 1. Relative to the project folder, create folders `/assets/img/` and `/assets/img/favicons/`.
 
@@ -152,7 +150,7 @@ For reference, check if the folder structure matches the one illustrated [above]
  
 To preview the blog locally, follow the steps below.
 
-1. Based on the operating system, follow the instructions at [Installation \| Jekyll](`https://jekyllrb.com/docs/installation/`).
+1. Based on the operating system, follow the instructions at [Installation \| Jekyll](https://jekyllrb.com/docs/installation/){:target="_blank"}.
 
 2. Relative to the project folder, execute `bundle exec jekyll s`.
 
@@ -161,10 +159,24 @@ To preview the blog locally, follow the steps below.
 > Once satisfied, to publish the changes, do not forget to commit the changes to the remote repository.
 
 ## CDN and Analytics \| Google Cloud
-In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for *engagement analytics*, *pageviews* and as *content delivery network (CDN)* for our website. The options below are optional. Skip this step to run the blog without these features.
+In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for *engagement analytics*, *pageviews* and as *content delivery network (CDN)* for our website. The options below are optional. Skip this section to run the blog without these features.
 
-### Pageviews
+In the steps below, we setup an [analytics property](https://support.google.com/analytics/answer/9355666?hl=en){:target="_blank"}.
 
-### CDN
+### Pageviews with Google Analytics
+
+To enable pageviews, we follow the steps in [Enable Google Pageviews \| Chirpy](https://chirpy.cotes.info/posts/enable-google-pv/){:target="_blank"}. However, with the [release of Google Analytics 4](https://support.google.com/analytics/answer/10089681?hl=en){:target="_blank"}, the first step of the guide is outdated. Therefore, we overwrite this step with the instructions below. Subsequently we continue with the next step of the guide.
+
+1. Head to [analytics.google.com](https://analytics.google.com/){:target="_blank"} and login or click on *Start Measuring*.
+
+2. Create or use an existing account.
+
+3. Create a property. Similar to the screenshot below, enable *Create a Universal Analytics* property, click on *Create both a Google Analytics 4 and a Universal Analytics property*.
+
+![Screenshot of creating an universal analytics property](/posts/2021-12-01-creating-a-dev-blog/create-an-universal-analytics-property.png)
+
+With both the [Google Analytics 4](https://support.google.com/analytics/answer/10089681?hl=en){:target="_blank"} and [Universal Analytics](https://support.google.com/analytics/answer/10269537?hl=en){:target="_blank"} properties created, follow all steps of [Enable Google Page Views \| Chirpy](https://chirpy.cotes.info/posts/enable-google-pv/#create-data-stream){:target="_blank"} starting from *Create Data Stream*.
+
+### CDN with Google Cloud
 
 ## Discussion Sections \| Disqus
