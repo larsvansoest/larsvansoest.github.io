@@ -1,6 +1,6 @@
 ---
 title: Creating a Free Markdown Dev Blog Using Github Pages and Google Cloud
-date: 2021-12-08 23:27:00 +0100
+date: 2021-12-08 23:35:00 +0100
 categories: [GitHub Pages, Google Cloud]
 tags: [dev blog, markdown, github pages, google cloud, chirpy jekyll theme, jekyll, disqus, git]
 ---
