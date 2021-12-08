@@ -7,16 +7,16 @@ tags: [dev blog, markdown, github pages, google cloud, chirpy jekyll theme, jeky
 
 ## Introduction
 
-In this post, we set up a responsive and interactive dev blog using [GitHub Pages](https://pages.github.com/){:target="_blank"} in combination with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} and [Google Cloud](https://cloud.google.com/){:target="_blank"}. The blog has the same setup as [vanSoest.dev](#), featuring *viewcounts*, *tags*, *categories*, a *search bar* and a *dark theme* toggle. The blog should provide any developer with a portfolio to easily and estetically collect sharable guides, notes, thoughts and opinions using [Markdown](https://github.github.com/gfm/){:target="_blank"}. What's more, the blog is completely free, and without licensing restrictions.
+In this post, we set up a responsive and interactive dev blog using [GitHub Pages](https://pages.github.com/){:target="_blank"} in combination with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} and [Google Cloud](https://cloud.google.com/){:target="_blank"}. The blog has the same setup as [vanSoest.dev](https://vansoest.dev){:target="_blank"}, featuring *viewcounts*, *tags*, *categories*, a *search bar* and a *dark theme* toggle. The blog should provide any developer with a portfolio to easily and estetically collect sharable guides, notes, thoughts and opinions using [Markdown](https://github.github.com/gfm/){:target="_blank"}. What's more, the blog is completely free, and without licensing restrictions.
 
 In an overview, we 
 [setup a GitHub Pages repository with Chirpy Jekyll Theme](#markdown-dev-blog--github-pages),
-[configure *viewcounts*, *analytics* and a *CDN* with Google Cloud](#pageviews-and-cdn--google-cloud), and 
+[configure *viewcounts*, *analytics* and a *CDN* with Google Cloud](#cdn-and-analytics--google-cloud), and 
 [enable *comments* with Disqus](#discussion-sections--disqus).
 
-## Markdown Dev Blog | GitHub Pages
+## Markdown Dev Blog \| GitHub Pages
 
-*Source: [Getting Started | Chirpy](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}*
+*Source: [Getting Started \| Chirpy](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}*
 
 In the steps below, we setup our main dev blog website. In short, we set up a [GitHub Pages](https://pages.github.com/){:target="_blank"} repository with the [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"}. Optionally, we may set a custom domain with a certificate for *https*.
 
@@ -24,13 +24,13 @@ In the steps below, we setup our main dev blog website. In short, we set up a [G
 In order to continue, we need a [GitHub](https://github.com/){:target="_blank"} account, [sign up here](https://github.com/signup){:target="_blank"}. In the steps below, the *GitHub account name* is refered to as `<github_username>`. Moreover, in case a [custom domain](#custom-domain) is not desired, note that the blog url will match `<github_username>.github.io`.
 
 ### Setting up GitHub Pages
-We use [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} as our [GitHub Pages](https://pages.github.com/){:target="_blank"} theme. As mentioned by [Getting Started | Chirpy](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}, there are two ways to set up the blog.
+We use [Chirpy Jekyll Theme](https://github.com/cotes2020/jekyll-theme-chirpy){:target="_blank"} as our [GitHub Pages](https://pages.github.com/){:target="_blank"} theme. As mentioned by [Getting Started \| Chirpy](https://chirpy.cotes.info/posts/getting-started/){:target="_blank"}, there are two ways to set up the blog.
 
 - [Using the Chirpy Starter](https://github.com/cotes2020/chirpy-starter/generate){:target="_blank"}
 
 - [Forking on GitHub](https://github.com/cotes2020/jekyll-theme-chirpy/fork){:target="_blank"}
 
-For simplicity, we use the first step, as the latter is for custom development. Accordingly, follow the steps below. 
+For simplicity, we use the first step. Accordingly, follow the steps below. 
 
 1. [Sign in](https://github.com/login){:target="_blank"} on GitHub.
 
@@ -66,7 +66,7 @@ For simplicity, we use the first step, as the latter is for custom development. 
 With the steps above, we have created the base dev blog website. For the rest of this section, we look into personalisation. In short, we 
 [set up a custom domain](#custom-domain) and 
 [apply custom *css* to the page](#custom-css-and-running-locally). 
-If these modifications are not necessary, skip to [CDN and Analytics | Google Cloud](#cdn-and-analytics--google-cloud).
+If these modifications are not necessary, skip to [CDN and Analytics \| Google Cloud](#cdn-and-analytics--google-cloud).
 
 ### Custom Domain
 
@@ -96,13 +96,75 @@ In this section, we setup a custom *apex domain* with *https* support. Moreover,
 
 5. Type the configured custom domain in the browser, and view the blog.
 
-### Custom CSS and Running Locally
+### Page Customisation
 
-## CDN and Analytics | Google Cloud
-In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for *engagement analytics*, *pageviews* and as *content delivery network (CDN)* for our website. To set up a page without these features.
+In the steps below, we customise the blog's stylesheet and favicon. To do so, add the folder `/assets/` relative to the project folder. 
+
+For reference, after [customising the css](#css) and [changing the favicon](#favicon) below, the project structure should match the example project structure below.
+
+```txt
+📦<github-username>.github.io
+ ┣ ...
+ ┣ 📂assets
+ ┃ ┣ 📂css
+ ┃ ┃ ┗ 📜style.scss
+ ┃ ┗ 📂img
+ ┃ ┃ ┗ 📂favicons
+ ┃ ┃ ┃ ┣ 📜android-chrome-192x192.png
+ ┃ ┃ ┃ ┣ 📜android-chrome-512x512.png
+ ┃ ┃ ┃ ┣ 📜apple-touch-icon.png
+ ┃ ┃ ┃ ┣ 📜browserconfig.xml
+ ┃ ┃ ┃ ┣ 📜favicon-16x16.png
+ ┃ ┃ ┃ ┣ 📜favicon-32x32.png
+ ┃ ┃ ┃ ┣ 📜favicon.ico
+ ┃ ┃ ┃ ┣ 📜mstile-150x150.png
+ ┃ ┃ ┃ ┗ 📜site.webmanifest
+ ┣ ...
+```
+
+#### CSS
+
+We customise the stylesheet with a new *SCSS* file. With this file, we overwrite and add *CSS* rules.
+
+1. Relative to the project folder, create folder `/assets/css/` and file `/assets/css/style.scss`.
+
+2. Create a new file `assets/css/style.scss`, and add the contents of Chirpy's [style.scss](https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/assets/css/style.scss){:target="_blank"}.
+
+In this new file, any css customisation we may add under the file's contents. For further reference, consider the [avatar size modification](https://github.com/larsvansoest/larsvansoest.github.io/blob/88bbbe415c93c904c49b0f0c87ea4a836be7ff14/assets/css/style.scss#L14){:target="_blank"} of [vanSoest.dev](https://vansoest.dev){:target="_blank"}.
+
+#### Favicon
+
+*Source: [Customize the Favicon \| Chirpy](https://chirpy.cotes.info/posts/customize-the-favicon/){:target="_blank"}*
+
+In order to change the blog's favicon, prepare a square image with size 512x512 or more. Then, follow the steps below.
+
+1. Relative to the project folder, create folders `/assets/img/` and `/assets/img/favicons/`.
+
+2. Create new files `assets/img/favicons/browserconfig.xml` and `assets/img/favicons/site.webmanifest`, and add the contents of Chirpy's [browserconfig.xml](https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/assets/img/favicons/browserconfig.xml){:target="_blank"} and [site.webmanifest](https://raw.githubusercontent.com/cotes2020/jekyll-theme-chirpy/master/assets/img/favicons/site.webmanifest){:target="_blank"} respectively.
+
+3. Upload the square image to [Real Favicon Generator](https://realfavicongenerator.net/){:target="_blank"}. Scroll down and click *Generate your Favicons and HTML code*. Download the package by clicking *Favicon Package*.
+
+4. Extract and add all `.png` and `.ico` files to `/assets/img/favicons/`.
+
+For reference, check if the folder structure matches the one illustrated [above](#page-customisation).
+
+### Running Locally
+ 
+To preview the blog locally, follow the steps below.
+
+1. Based on the operating system, follow the instructions at [Installation \| Jekyll](`https://jekyllrb.com/docs/installation/`).
+
+2. Relative to the project folder, execute `bundle exec jekyll s`.
+
+3. To view the blog, navigate to `localhost:4000` or `127.0.0.1:4000` in the web browser.
+
+> Once satisfied, to publish the changes, do not forget to commit the changes to the remote repository.
+
+## CDN and Analytics \| Google Cloud
+In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for *engagement analytics*, *pageviews* and as *content delivery network (CDN)* for our website. The options below are optional. Skip this step to run the blog without these features.
 
 ### Pageviews
 
 ### CDN
 
-## Discussion Sections | Disqus
+## Discussion Sections \| Disqus
