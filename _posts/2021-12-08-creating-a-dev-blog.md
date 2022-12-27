@@ -155,27 +155,9 @@ To preview the blog locally, follow the steps below.
 
 3. To view the blog, navigate to `localhost:4000` or `127.0.0.1:4000` in the web browser.
 
-> Once satisfied, to publish the changes, do not forget to commit the changes to the remote repository.
+> Once satisfied, to publish the changes, commit the changes to the remote repository.
 
-## CDN and Analytics \| Google Cloud
-
-In the steps below, we use [Google Cloud](https://cloud.google.com/){:target="_blank"} for *engagement analytics*, *pageviews* and as *content delivery network (CDN)* for our website. The options below are optional. Skip this section to run the blog without these features. 
-
-### Pageviews with Google Analytics
-
-To enable pageviews, we follow the steps in [Enable Google Pageviews \| Chirpy](https://chirpy.cotes.info/posts/enable-google-pv/){:target="_blank"}. However, with the [release of Google Analytics 4](https://support.google.com/analytics/answer/10089681?hl=en){:target="_blank"}, the first step of the guide is outdated. Therefore, we overwrite this step with the instructions below. Subsequently, we continue with the next step of the guide.
-
-1. Head to [analytics.google.com](https://analytics.google.com/){:target="_blank"} and login or click on *Start Measuring*.
-
-2. Create or use an existing account.
-
-3. Create a property, enable the *Create a Universal Analytics* property, click on *Create both a Google Analytics 4 and a Universal Analytics property*.
-
-![Screenshot of creating a universal analytics property](/posts/2021-12-08-creating-a-dev-blog/create-universal-analytics-property.png)
-
-With both the [Google Analytics 4](https://support.google.com/analytics/answer/10089681?hl=en){:target="_blank"} and [Universal Analytics](https://support.google.com/analytics/answer/10269537?hl=en){:target="_blank"} properties created, follow all steps of [Enable Google Page Views \| Chirpy](https://chirpy.cotes.info/posts/enable-google-pv/#create-data-stream){:target="_blank"} starting from *Create Data Stream*.
-
-### CDN with Google Cloud
+## CDN with Google Cloud
 
 Last but not least, we set up the *content delivery network (CDN)* for our images. With the steps below, with [Google Cloud](https://cloud.google.com/){:target="_blank"}, we set up a load balancer to cache and deliver imagery for our posts. In the steps below, we use a subdomain of the [custom domain](#custom-domain) to enable *https*.
 
@@ -195,13 +177,19 @@ Below, we set up a *bucket* to store the blog's content and make it public.
 
 1. With the project selected, type `storage` in the search bar and click on *Cloud Storage* and *Create Bucket*.
 
-2. Enter a name for your bucket and select the desired region(s). Leave the rest of the options as default. Click *Create*.
+2. Enter a name for your bucket and select the desired region(s).
 
-3. Now, we set the bucket to public. In the bucket details view, click *Permissions* and, click *Add*. Add `allUsers` as principals and select the role `Storage Object Viewer`. When prompted, click *Allow Public Access*.
+3. In *Choose how to control access to objects*, uncheck *Enforce public access prevention on this bucket*.  Leave the rest of the options as default. Click *Create*.
+
+![Screenshot of creating a public bucket](/posts/2021-12-08-creating-a-dev-blog/creating-a-public-bucket.png)
+
+4. Now, we set the bucket to public. In the bucket details view, click *Permissions* and, click *Grant Access*. Add `allUsers` as principals and select the role `Storage Object Viewer`. When prompted, click *Allow Public Access*.
 
 ![Screenshot of setting the bucket access to public](/posts/2021-12-08-creating-a-dev-blog/enable-public-bucket-access.png)
 
-> Enabling public access for a bucket will make its contents accessible to the internet. Be mindful when uploading files.
+> This enables public access. Enabling public access for a bucket will make its contents accessible to the internet. Be mindful when uploading files.
+
+
 
 #### Setting up the Load balancer
 
@@ -211,21 +199,23 @@ In the steps below, we setup *cloud CDN* with a load balancer, which can be acce
 
 2. Click *Create Load Balancer* and *Start Configuration* for *HTTP(S) Load Balancing*. Keep the default options, and continue.
 
-4. Configure the *Load Balancer* as follows.
+    > If the page fails to load after clicking continue, ensure the [Compute Engine API](https://cloud.google.com/compute/docs/reference/rest/v1) is enabled.
 
-    - Enter a name for the load balancer.
+3. Configure the *Load Balancer* as follows.
+
+    - At *Frontend configuration*, enter a name, and select *https* as protocol. At *Certificate*, click *Create a New Certificate*, enter a name, select *Create Google-managed certificate*, enter `loadbalancer.<custom_domain>` at domains, and click *Create*.
 
     - At *Backend configuration*, select the dropdown for *Backend services & backend buckets* and *Create a Backend Bucket*. Enter a name, select [the bucket created above](#creating-a-bucket), select *Enable Cloud CDN*, keep the default options, and click *Create*.
 
         ![Screenshot of creating a backend bucket](/posts/2021-12-08-creating-a-dev-blog/create-backend-bucket.png)
 
-    - At *Host and path rules*, set mode at *Simple host and path rule*, hosts as *Any unmatched (default)*, paths as *Any unmatched (default)* and at *Backends*, select the backend bucket created above.
+    - At *Routing Rules*, set mode to *Simple host and path rule*, select the backend bucket created above.
 
-    - At *Frontend configuration*, enter a name, and select *https* as protocol. At *certificate*, click *Create a New Certificate*, enter a name, select *Create Google-managed certificate*, enter `loadbalancer.<custom_domain>` at domains, and click *Create*.
+4. Review the load balancer's settings and click *Create*.
 
-5. Review the load balancer's settings and click *Create*.
+    ![Screenshot of reviewing the load balancer](/posts/2021-12-08-creating-a-dev-blog/review-and-finalize-load-balancer.png)
 
-6. At the created load balancer's details, find the load balancer's ip-adress. Modify the *DNS* of your custom domain by adding the following rule.
+5. At the created load balancer's details, find the load balancer's ip-adress. Modify the *DNS* of your custom domain by adding the following rule.
 
     | Type | Name | Value |
     |:----:|:----:|:-----:|
@@ -233,13 +223,13 @@ In the steps below, we setup *cloud CDN* with a load balancer, which can be acce
 
     > It might take around 1 or 2 hours for the DNS and certificate to resolve.
 
-7. In `_config.yml` of the project, set the value for property `image_cdn` to `https://loadbalancer.<custom_domain>`.
+6. In `_config.yml` of the project, set the value for property `image_cdn` to `https://loadbalancer.<custom_domain>`.
 
 #### Upload and Use Imagery
 
 After the steps above, to use images in our posts, we can upload them to our bucket and reference them in our markdown file.
 
-To upload images to the bucket, select the project in [Google Cloud](https://cloud.google.com/){:target="_blank"}. Then, type `storage` in the search bar and click on *Cloud Storage*. Select the [bucket created above](#creating-a-bucket), and set up a file structure as desired. We can reference any uploaded image in our post with `![alt text](/relative/path/to/image)`.
+To upload images to the bucket, select the project in [Google Cloud](https://cloud.google.com/){:target="_blank"}. Then, type `storage` in the search bar and click on *Cloud Storage*. Select the [bucket created above](#creating-a-bucket), and set up a file structure as desired. An image can be referenced in a post with `![alt text](/relative/path/to/image)`.
 
 ## Notes
 
