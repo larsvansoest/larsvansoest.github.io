@@ -9,7 +9,7 @@ In this post, we set up a responsive and interactive dev blog using [GitHub Page
 
 In an overview, we 
 [setup a GitHub Pages repository with Chirpy Jekyll Theme](#markdown-dev-blog--github-pages) and
-[configure *view counts*, *analytics* and a *CDN* with Google Cloud](#cdn-and-analytics--google-cloud).
+[a *CDN* with Google Cloud](#cdn-with-google-cloud).
 
 ## Markdown Dev Blog \| GitHub Pages
 
