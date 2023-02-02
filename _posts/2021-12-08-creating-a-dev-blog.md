@@ -39,7 +39,7 @@ For simplicity, we use the first step. Accordingly, follow the steps below.
     - Set to public (default).
     - Uncheck *Include all branches* (default).
 
-    ![Screenshot when creating a new repository from chirpy-starter](/posts/2021-12-08-creating-a-dev-blog/create-a-new-repository-from-chirpy-starter.png)
+    ![Screenshot when creating a new repository from chirpy-starter](/assets/img/posts/2021-12-08-creating-a-dev-blog/create-a-new-repository-from-chirpy-starter.png)
 
 3. Now, we have successfully created the repository. [Clone](https://github.com/git-guides/git-clone) the repository locally.
     
@@ -49,7 +49,7 @@ For simplicity, we use the first step. Accordingly, follow the steps below.
 
 6. Head to `https://github.com/<github_username>/<github_username>.github.io/actions`, or *Actions* on the repository. Check the publishing status. After a few minutes, once resolved, a new branch `gh-pages` is added to the repository on [GitHub](https://github.com){:target="_blank"}, which contains the built source of the blog page.
 
-    ![Screenshot of resolved publishing action for the blog page.](/posts/2021-12-08-creating-a-dev-blog/resolved-publishing-action-for-the-blog-page.png)
+    ![Screenshot of resolved publishing action for the blog page.](/assets/img/posts/2021-12-08-creating-a-dev-blog/resolved-publishing-action-for-the-blog-page.png)
 
 7. Head to `https://github.com/<github_username>/<github_username>.github.io/settings/pages` or *Settings* > *Pages* on the repository, and set the page source as follows.
 
@@ -57,7 +57,7 @@ For simplicity, we use the first step. Accordingly, follow the steps below.
     - Set *Folder* to `/(root)`.
     - Click *Save*.
 
-    ![Screenshot when setting branch gh-page as source.](/posts/2021-12-08-creating-a-dev-blog/set-gh-pages-root-as-source.png)
+    ![Screenshot when setting branch gh-page as source.](/assets/img/posts/2021-12-08-creating-a-dev-blog/set-gh-pages-root-as-source.png)
 
 8. After a few minutes, head to `https://<github_username>.github.io` and view the new website.
 
@@ -87,7 +87,7 @@ In this section, we setup a custom *apex domain* with *https* support. Moreover,
 
 3. Head to `https://github.com/<github_username>/<github_username>.github.io/settings/pages` or *Settings* > *Pages* on the repository. Under custom domain, enter the configured domain, and click save. 
 
-    ![Screenshot of setting custom domain](/posts/2021-12-08-creating-a-dev-blog/set-custom-domain.png)
+    ![Screenshot of setting custom domain](/assets/img/posts/2021-12-08-creating-a-dev-blog/set-custom-domain.png)
 
 4. Set the value of property `url` of `_config.yml` to the desired domain name (e.g. `https://vansoest.dev`).
 
@@ -181,11 +181,11 @@ Below, we set up a *bucket* to store the blog's content and make it public.
 
 3. In *Choose how to control access to objects*, uncheck *Enforce public access prevention on this bucket*.  Leave the rest of the options as default. Click *Create*.
 
-![Screenshot of creating a public bucket](/posts/2021-12-08-creating-a-dev-blog/creating-a-public-bucket.png)
+![Screenshot of creating a public bucket](/assets/img/posts/2021-12-08-creating-a-dev-blog/creating-a-public-bucket.png)
 
 4. Now, we set the bucket to public. In the bucket details view, click *Permissions* and, click *Grant Access*. Add `allUsers` as principals and select the role `Storage Object Viewer`. When prompted, click *Allow Public Access*.
 
-![Screenshot of setting the bucket access to public](/posts/2021-12-08-creating-a-dev-blog/enable-public-bucket-access.png)
+![Screenshot of setting the bucket access to public](/assets/img/posts/2021-12-08-creating-a-dev-blog/enable-public-bucket-access.png)
 
 > This enables public access. Enabling public access for a bucket will make its contents accessible to the internet. Be mindful when uploading files.
 
@@ -207,13 +207,13 @@ In the steps below, we setup *cloud CDN* with a load balancer, which can be acce
 
     - At *Backend configuration*, select the dropdown for *Backend services & backend buckets* and *Create a Backend Bucket*. Enter a name, select [the bucket created above](#creating-a-bucket), select *Enable Cloud CDN*, keep the default options, and click *Create*.
 
-        ![Screenshot of creating a backend bucket](/posts/2021-12-08-creating-a-dev-blog/create-backend-bucket.png)
+        ![Screenshot of creating a backend bucket](/assets/img/posts/2021-12-08-creating-a-dev-blog/create-backend-bucket.png)
 
     - At *Routing Rules*, set mode to *Simple host and path rule*, select the backend bucket created above.
 
 4. Review the load balancer's settings and click *Create*.
 
-    ![Screenshot of reviewing the load balancer](/posts/2021-12-08-creating-a-dev-blog/review-and-finalize-load-balancer.png)
+    ![Screenshot of reviewing the load balancer](/assets/img/posts/2021-12-08-creating-a-dev-blog/review-and-finalize-load-balancer.png)
 
 5. At the created load balancer's details, find the load balancer's ip-adress. Modify the *DNS* of your custom domain by adding the following rule.
 
